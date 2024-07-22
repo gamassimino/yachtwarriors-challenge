@@ -1,0 +1,85 @@
+<% if @loan.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@loan.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+    <ul>
+    <% @loan.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @loan, class: "max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md" do |form| %>
+  <div class="space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Dirección -->
+      <div class="md:col-span-1 flex items-center">
+        <%= form.label :address, class: "block text-gray-700 font-medium " %>
+      </div>
+      <div class="md:col-span-1">
+        <%= form.text_field :address, class: "form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+      </div>
+
+      <!-- Término del Préstamo -->
+      <div class="md:col-span-1 flex items-center">
+        <%= form.label :loan_term, class: "block text-gray-700 font-medium " %>
+      </div>
+      <div class="md:col-span-1">
+        <%= form.number_field :loan_term, class: "form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+      </div>
+
+      <!-- Precio de Compra -->
+      <div class="md:col-span-1 flex items-center">
+        <%= form.label :purchase_price, class: "block text-gray-700 font-medium " %>
+      </div>
+      <div class="md:col-span-1">
+        <%= form.number_field :purchase_price, class: "form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+      </div>
+
+      <!-- Presupuesto de Reparación -->
+      <div class="md:col-span-1 flex items-center">
+        <%= form.label :repair_budget, class: "block text-gray-700 font-medium " %>
+      </div>
+      <div class="md:col-span-1">
+        <%= form.number_field :repair_budget, class: "form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+      </div>
+
+      <!-- Presupuesto Después de Reparación -->
+      <div class="md:col-span-1 flex items-center">
+        <%= form.label :after_repair_value, class: "block text-gray-700 font-medium " %>
+      </div>
+      <div class="md:col-span-1">
+        <%= form.number_field :after_repair_value, class: "form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+      </div>
+
+      <!-- Nombre -->
+      <div class="md:col-span-1 flex items-center">
+        <%= form.label :name, class: "block text-gray-700 font-medium " %>
+      </div>
+      <div class="md:col-span-1">
+        <%= form.text_field :name, class: "form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+      </div>
+
+      <!-- Email -->
+      <div class="md:col-span-1 flex items-center">
+        <%= form.label :email, class: "block text-gray-700 font-medium " %>
+      </div>
+      <div class="md:col-span-1">
+        <%= form.text_field :email, class: "form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+      </div>
+
+      <!-- Teléfono -->
+      <div class="md:col-span-1 flex items-center">
+        <%= form.label :phone, class: "block text-gray-700 font-medium " %>
+      </div>
+      <div class="md:col-span-1">
+        <%= form.text_field :phone, class: "form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+      </div>
+    </div>
+
+    <div>
+      <%= form.submit "Submit", class: "w-full px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" %>
+    </div>
+  </div>
+<% end %>
